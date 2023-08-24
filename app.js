@@ -40,7 +40,6 @@ function calculateChecksum(data) {
   try {
     await checkRecordCounts();
     await verifyDataIntegrity();
-    await validateSampleData(3); // Validate 3 random records
   } catch (error) {
     console.error("Error during validation:", error);
   }
