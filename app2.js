@@ -75,8 +75,8 @@ const generateSampleData2 = (numRecords) => {
     { id: '16', name: 'Bob12' , email: 'helloWorld@123'},
     { id: '17', name: 'Alice13' , email: 'helloWorld@123'},
     { id: '18', name: 'Bob13' , email: 'helloWorld@123'},
-    { id: '19', name: 'Alice14' , email: 'helloWorld@123'},
     { id: '20', name: 'Bob13' , email: 'helloWorld@123'},
+    { id: '19', name: 'Alice14' , email: 'helloWorld@123'},
     
   ];
   const sourceData = generateSampleData(100); // Generate 100 sample records
@@ -111,4 +111,23 @@ const generateSampleData2 = (numRecords) => {
   }
     
   // Additional checkpoints and validations can be added as needed.
+  
+// Checkpoint 3: Verify records are in the same order
+function compareDataArrays(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (JSON.stringify(arr1[i]) !== JSON.stringify(arr2[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+if (compareDataArrays(originalData, sendData)) {
+  console.log("Records are in the same order.");
+} else {
+  console.log("Records are not in the same order.");
+}
   
